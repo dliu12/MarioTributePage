@@ -1,21 +1,152 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Tribute Page for Mario">
+        <meta name="author" content="Diyi Liu">
+        <meta name="keywords" content="Mario,Tribute Page, Javascript,HTML,CSS">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mario - Tribute Page</title>
+        <style>
+            #main{
+                border:1px solid black; /*temporary*/
+                margin:0;
+                width:100%;
+                height:auto;
+            }
+            #background{
+                position:fixed; 
+                width:100%;
+                height:100%;
+                z-index: -1;
 
+                background:linear-gradient(180deg, rgba(109, 98, 0, 0.5) 0%, rgba(141, 143, 0, 0) 50%), url("../Images/TileBackground1.png");
+                background-blend-mode: screen;
+                background-size:25% auto;
+                background-repeat: repeat;
+                opacity:0.35;
+            }
+            header,footer, #tribute-info{
+                border:1px solid red; /*temporary*/
+            }
+            #tribute-info{
+                max-width:90%;
+                margin:0 auto 0 auto;
+            }
+            /* header css */
+            header{
+                position:relative;
+                background:linear-gradient(180deg, rgba(231, 0, 0, 0.5) 49.48%, rgba(255, 245, 190, 0) 100%);
+            }
+            /* nav:absolute positioned */
+            nav, #title, #img-div{
+                /* border:1px solid blue; */
+                margin:0;
+                padding:0;
+            }
+            nav{
+                width:100%;
+                height:50px;
+                background:linear-gradient(180deg, #9E0000 0%, rgba(158, 0, 0, 0.5) 48.96%, #9F0000 100%);
+            }
+            nav ul{
+                margin:0;
+                padding:0;
+                border:1px solid black;
+                list-style-type: none;
+                width:50%;
+                max-width:750px;
+                height:100%;
+                margin:0 auto 0 auto;
+                
+                display:grid;
+                grid-template-columns:100px 1fr 1fr 1fr;
+                align-items:center;
+                justify-items:center;
+            }
+            nav ul li{
+                border:1px solid black;
+            }
+            /* figure image: center and relative positioned */
+            #img-icon{
+                position: relative;
+                margin:0 auto 0 auto;
+                padding:0;
+                width:fit-content;
+            }
+            #img-icon div{
+                margin:0;
+                padding:0;
+                /* border:10px solid red; */
+                border-radius:500px 500px 500px 500px;
+                background-color:lightsalmon;
+            }
+            #img-caption{
+                position:relative;
+                border:1px solid red;
+                width:fit-content;
+                margin:-3% 0 0 0;
+                padding:0 0 0 5%;
+
+            }
+            /* title: center and relative positioned */
+            #title{
+                /* background-color:lightgrey; */
+                width:50%;
+                text-align:center;
+                margin:3% auto 3% auto;
+                padding:0;
+            }
+            @media screen and (max-width:500px){
+                /* header{
+                    position:relative;
+                    margin:0;
+                    width:100%;
+                    height:500px;
+                    display:grid;
+                    grid-template-rows:50px 50px auto;
+                    grid-template-areas:
+                        "navigation",
+                        "title",
+                        "figure";
+                }
+                nav{
+                    position:relative;
+                    background-color:lightblue;
+                    grid-area:navigation;
+                    display:grid;
+                    grid-template-columns:auto auto auto;
+                    grid-template-areas:"nav1 nav2 nav3";
+                }
+                #title{
+                    position:relative;
+                    background-color:lightcoral;
+                    grid-area:title;
+                } */
+            }
+        </style>   
     </head>
     <body id="main">
+        <div id="background"></div>
         <header>
             <nav>
                 <ul>
-                    <li>About</li>
-                    <li>Timeline</li>
-                    <li>Links</li>
+                    <li></li>
+                    <li id="nav-about">
+                        About
+                    </li>
+                    <li id="nav-Timeline">
+                        Timeline
+                    <li id="nav-Links">
+                        Links
                 </ul>
             </nav>
             <h1 id="title">"It's-A Me, Mario!"</h1>
             <div id="img-div">
-                <figure>
-                    <img src="../Images/Mario1.png" id="image">
+                <figure id="img-icon">
+                    <div>
+                        <img id="image" src="../Images/Mario3.png">
+                    </div>
                     <br/>
                     <figcaption id="img-caption">Image of Mario from Nintendo Homepage</figcaption>
                 </figure>
@@ -61,7 +192,7 @@
             </div>
         </div>
         <footer>
-            <h3>“LIfe is a game, kid! It all depends on how you play it!”</h3>
+            <h3>“Life is a game, kid! It all depends on how you play it!”</h3>
             <a id="tribute-link" href="https://mario.nintendo.com/characters/" target="_blank">Nintendo/Char</a>
             <a id="tribute-link" href="https://en.wikipedia.org/wiki/Mario" target="_blank">Mario Wiki</a>
             <a id="tribute-link" href="https://en.wikipedia.org/wiki/Super_Mario" target="_blank">Mario Wiki 2</a>
