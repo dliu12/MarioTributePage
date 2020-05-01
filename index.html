@@ -7,12 +7,15 @@
         <meta name="keywords" content="Mario,Tribute Page, Javascript,HTML,CSS">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Mario - Tribute Page</title>
+        <!-- font-family and external references -->
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Titillium+Web:wght@700&family=VT323&display=Amiri&display=swap" rel="stylesheet">
         <style>
             #main{
-                border:1px solid black; /*temporary*/
                 margin:0;
                 width:100%;
                 height:auto;
+                font-family:'Open Sans', sans-serif;
+                color:rgba(10,10,10,1);
             }
             #background{
                 position:fixed; 
@@ -26,17 +29,10 @@
                 background-repeat: repeat;
                 opacity:0.35;
             }
-            header,footer, #tribute-info{
-                border:1px solid red; /*temporary*/
-            }
-            #tribute-info{
-                max-width:90%;
-                margin:0 auto 0 auto;
-            }
             /* header css */
             header{
                 position:relative;
-                background:linear-gradient(180deg, rgba(231, 0, 0, 0.5) 49.48%, rgba(255, 245, 190, 0) 100%);
+                background:linear-gradient(180deg, rgba(231, 0, 0, 0.70) 50%, rgba(255, 245, 190, 0) 100%);
             }
             /* nav:absolute positioned */
             nav, #title, #img-div{
@@ -47,12 +43,14 @@
             nav{
                 width:100%;
                 height:50px;
-                background:linear-gradient(180deg, #9E0000 0%, rgba(158, 0, 0, 0.5) 48.96%, #9F0000 100%);
+                background:linear-gradient(180deg, #9E0000 0%, rgba(158, 0, 0, 0.5) 50%, #9F0000 100%);
+                font-family: 'VT323', monospace;
+                font-size:3.5vmin;  
             }
             nav ul{
                 margin:0;
                 padding:0;
-                border:1px solid black;
+                /* border:1px solid black; */
                 list-style-type: none;
                 width:50%;
                 max-width:750px;
@@ -60,12 +58,27 @@
                 margin:0 auto 0 auto;
                 
                 display:grid;
-                grid-template-columns:100px 1fr 1fr 1fr;
+                grid-template-columns:50px 1fr 1fr 1fr;
                 align-items:center;
                 justify-items:center;
             }
             nav ul li{
-                border:1px solid black;
+                /* border:1px solid black; */
+                margin:0;
+                padding:0;
+            }
+            nav a {
+                text-decoration: none;
+                color:white;
+            }
+            nav a:hover{
+                font-weight:bolder;
+                color:lightyellow;
+            }
+            #nav-icon{
+                width:100%;
+                height:auto;
+                filter:drop-shadow(1px 2px 2px rgba(71,71,71,1));
             }
             /* figure image: center and relative positioned */
             #img-icon{
@@ -83,10 +96,12 @@
             }
             #img-caption{
                 position:relative;
-                border:1px solid red;
+                /* border:1px solid red; */
                 width:fit-content;
                 margin:-3% 0 0 0;
                 padding:0 0 0 5%;
+                color:rgba(80,80,80,1);
+                font-family:'Amiri','Times New Roman', Times, serif;
 
             }
             /* title: center and relative positioned */
@@ -96,6 +111,152 @@
                 text-align:center;
                 margin:3% auto 3% auto;
                 padding:0;
+                font-family: 'Titillium Web', sans-serif;
+                font-size:5.5vmin;
+                color:white;
+                text-shadow: 1px 2px lightgray;
+            }
+
+            /* Content and sections css */
+            #tribute-info{
+                max-width:66%;
+                margin:25px auto 0 auto;
+            }
+            #tribute-info section{
+                margin:5px 0 0 0;
+                padding:0;
+                background-color:rgba(225, 225, 225, 0.25);
+                border-radius:10px 10px 10px 10px;
+                font-size:18px;
+            }
+            #tribute-info section h2{
+                margin:0;
+                padding:0;
+                font-family: 'Titillium Web', sans-serif;
+                font-size:3vmin;
+                color:rgba(30,30,30,1);
+
+            }
+            .section-titles{
+                margin:0;
+                padding:0;
+                width:100%;
+                height:auto;
+                display:grid;
+                grid-template-columns: 75px auto;
+                grid-gap:5px;
+                align-items: center;
+            }
+            .bricks{
+                list-style-type: none;
+                padding:0;
+                margin:0;
+                width:75px;
+                height:25px;
+                display:grid;
+                grid-template-columns:repeat(3,1fr);
+                grid-template-areas: "first second third";
+            }
+            .bricks1{
+                background-image:url("Images/block2.png");
+                background-size:contain;
+            }
+            .bricks2{
+                background-image:url("Images/block3.png");
+                background-size:contain;
+            }
+            .bricks3{
+                background-image:url("Images/block2.png");
+                background-size:contain;
+            }
+
+            /* top of page jump */
+            #topOfPage a{
+                position:fixed;
+                top:50%;
+                right:0;
+                width:50px;
+                height:100px;
+                filter:drop-shadow(1px 2px lightslategray) opacity(75%);
+                display:grid;
+                grid-template-rows:50px 50px;
+                grid-template-areas:"top",
+                                    "bottom";
+            }
+            #topOfPage a:hover{
+                filter:opacity(100%);
+            }
+            #pop1{
+                grid-area:"top";
+                width:50px;
+                height:auto;
+            }
+            #pop2{
+                grid-area:"bottom";
+                width:inherit;
+                height:auto;
+            }
+            #time-line-points{
+                margin:0;
+                list-style-position:outside;
+                list-style-type: square;
+                font-size:16px;
+            }
+            #time-line-points li{
+                margin:10px 0 10px 0;
+            }
+            #time-line-points li span{
+                font-weight:bolder;
+            }
+            /* citations */
+            #citations ol{
+                font-size:12px;
+            }
+            /* footer */
+            #footer{
+                width:100%;
+                height:auto;
+                margin-top:20px;
+                background-image:url("Images/bricks2.png");
+                background-repeat: repeat;
+                background-size: 50px 50px;
+                font-family: 'VT323',monospace;
+            }
+            h3{
+                margin:75px auto 0 auto;
+                width:66%;
+                font-family: 'VT323',monospace;
+                font-size:3.5vmin;
+                text-align:center;
+            }
+            #links{
+                max-width:500px;
+                width:fit-content;
+                margin:0 auto 0 auto;
+                height:50px;
+                display:grid;
+                grid-template-columns: repeat(3,minmax(25px,50px));
+                grid-gap:0 50px;
+                text-align: center;
+            }
+            #links a{
+                max-width:50px;
+                max-height:50px;
+                width:100%;
+                height:100%;
+                background-image: url("Images/block1.png");
+                background-size:cover;
+                display:grid;
+                align-items: center;
+                font-size:45px;
+                color:white;
+                text-decoration: none;
+            }
+            #footer h6{
+                width:fit-content;
+                margin:10px auto 10px auto;
+                color:white;
+                font-size:calc(7px + 1vmin);
             }
             @media screen and (max-width:500px){
                 /* header{
@@ -128,17 +289,17 @@
     </head>
     <body id="main">
         <div id="background"></div>
-        <header>
+        <header id="heading">
             <nav>
                 <ul>
-                    <li></li>
+                    <li><img id="nav-icon" src="Images/marioIcon2.png"></li>
                     <li id="nav-about">
-                        About
+                        <a href="#about">About</a>
                     </li>
                     <li id="nav-Timeline">
-                        Timeline
+                        <a href="#time-line">Timeline</a>
                     <li id="nav-Links">
-                        Links
+                        <a href="#links">Links</a>
                 </ul>
             </nav>
             <h1 id="title">"It's-A Me, Mario!"</h1>
@@ -152,16 +313,36 @@
                 </figure>
             </div>
         </header>
+        <div id="topOfPage">
+            <a href="#heading">
+                <img id="pop1" src="Images/Mushroom1.png" />
+                <img id="pop2" src="Images/brick3.png" />
+            </a>
+        </div>
         <div id="tribute-info">
             <section id="about">
-                <h2>Character About</h2>
+                <div class="section-titles">
+                    <ul class="bricks">
+                        <li class="bricks1"></li>
+                        <li class="bricks2"></li>
+                        <li class="bricks3"></li>
+                    </ul>
+                    <h2>Character About</h2>
+                </div>
                 <p>&nbsp;&nbsp;&nbsp;&nbsp;He is cheerful, inspiring, and jumpy (Nintendo "Characters")! He is your favorite Italian plumber who has been bravely battling bad guys for decades to protect the mushroom kingdom and keep his beloved Princess Peach safe and away from Bowser, the King of Koopas. He is the great Mario, a fictional protagonist in the Mario video game franchise, owned by Nintendo and created by a Japanese video game designer Shigeru Miyamoto ("Mario" 2020). Ever since his creation, Mario has appeared in over 200 video games ("Mario" 2020), deeming him to be one of the most well known fictional mascots in the modern day gaming industry. </p>
                 <p>&nbsp;&nbsp;&nbsp;&nbsp;Shigeru Miyamoto created Mario when developing the Donkey Kong game. Miyamoto originally wanted to use characters such as Popeye, Bluto, and Olive Oyl for Donkey Kong, however he was unable to obtain the necessary licenses. As a result, Miyamoto created an unnamed character when releasing the game. This unnamed character was later enabled to jump to improve on the game interactivity. Though the character was originally unnamed, after the game was released in the western world, he was named Jumpman in the English game instructions and as Mario in the sales brochure. </p>
                 <p>&nbsp;&nbsp;&nbsp;&nbsp;Miyamoto wanted to name the character “Mr.Video”, however due to conflicts between the landlord of Nintendo’s warehouse in America and the then-president  Minoru Arakawa, it was decided in the end that the character should be named after the landlord, Mario Segale. The full character designs, such as the location, the mustache, and the job occupation were later filled in by Miyamoto in effort to make the character more easily identifiable.</p>
             </section>
             <section id="time-line">
-                <h2>Timeline</h2>
-                <ul>
+                <div class="section-titles">
+                    <ul class="bricks" id="bricks2">
+                        <li class="bricks1"></li>
+                        <li class="bricks2"></li>
+                        <li class="bricks3"></li>
+                    </ul>
+                    <h2>Timeline</h2>
+                </div>
+                <ul id="time-line-points">
                     <li><span>July,9,1981</span> - Mario debuted as “Jumpman” in the arcade game Donkey Kong ("Super Mario" 2020).</li>
                     <li><span>1982</span> - Jumpman was renamed as mario in the arcade game Donkey Kong Junior. It was the only time when Jumpman (Mario) was portrayed as the antagonist in the game ("Super Mario" 2020).</li>
                     <li><span>1983</span> - Mario’s younger brother, Luigi, was introduced in the arcade game Mario Bros. The brothers were portrayed as Italian-America plumbers in New York City, who have been active in defeating monsters that come from the sewers below the city ("Super Mario" 2020).</li>
@@ -179,23 +360,30 @@
                     <li><span>2008 - present</span> - Fourteen more different versions of Mario games were introduced in either 2.5 D or 3D platforms ("Super Mario" 2020). </li>
                 </ul>
             </section>
-            <section>
-                <h2>Citations</h2>
+            <section id="citations">
+                <div class="section-titles">
+                    <ul class="bricks" id="bricks2">
+                        <li class="bricks1"></li>
+                        <li class="bricks2"></li>
+                        <li class="bricks3"></li>
+                    </ul>
+                    <h2>Citations</h2>
+                </div>
                 <ol>
                     <li>“Mario.” Wikipedia, Wikimedia Foundation, 23 Apr. 2020, en.wikipedia.org/wiki/Mario.</li>
                     <li>“Characters.” The Official Home for Mario - Characters, mario.nintendo.com/characters/.</li>
                     <li>“Super Mario.” Wikipedia, Wikimedia Foundation, 25 Apr. 2020, en.wikipedia.org/wiki/Super_Mario.</li>
                 </ol>
             </section>
-            <div id="topOfPage">
-                <img src="" />
-            </div>
         </div>
-        <footer>
-            <h3>“Life is a game, kid! It all depends on how you play it!”</h3>
-            <a id="tribute-link" href="https://mario.nintendo.com/characters/" target="_blank">Nintendo/Char</a>
-            <a id="tribute-link" href="https://en.wikipedia.org/wiki/Mario" target="_blank">Mario Wiki</a>
-            <a id="tribute-link" href="https://en.wikipedia.org/wiki/Super_Mario" target="_blank">Mario Wiki 2</a>
+        <h3>“Life is a game, kid! It all depends on how you play it!”</h3>
+        <footer id="footer">
+            <h6>Click on links below for more information: </h6>
+            <div id="links">
+                <a id="tribute-link" href="https://mario.nintendo.com/characters/" target="_blank"><span>1</span></a>
+                <a id="tribute-link2" href="https://en.wikipedia.org/wiki/Mario" target="_blank"><span>2</span></a>
+                <a id="tribute-link3" href="https://en.wikipedia.org/wiki/Super_Mario" target="_blank"><span>3</span></a>
+            </div>
         </footer>
     </body>
 </html>
